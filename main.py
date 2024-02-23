@@ -6,7 +6,7 @@ import random
 
 api_id = 29268693
 api_hash = "1ad7c3f7c78b8ca2a1888b757764ae03"
-bot_token = "6957418222:AAFws7XUzaWyZN2iEHatd2qq9QyRJrr_OY4"
+bot_token = "6472433409:AAH3IKMVV__PTJvG4CfNoNvUvvlEYcsmWFA"
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
