@@ -30,7 +30,6 @@ def check_user_in_channel(func):
   return wrapper
 
 
-
 @app.on_message(filters.command("start"))
 async def start(client, msg):
   await app.delete_bot_commands()
@@ -45,10 +44,14 @@ async def start(client, msg):
                              resize_keyboard=True))
   except Exception as e:
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
 
 
 @app.on_message(filters.regex("ABOUT"))
@@ -59,16 +62,19 @@ async def about(client, msg):
   try:
     await app.get_chat_member(channel_id, user_id)
     await msg.reply(
-      text=
-      "Disclaimer: This bot is made for Entertainment purposes only. \n\n if you want to create bots like this you can message me on @CODEX_ML_bot "
-  )
+        text=
+        "Disclaimer: This bot is made for Entertainment purposes only. \n\n if you want to create bots like this you can message me on @CODEX_ML_bot "
+    )
   except Exception as e:
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
-
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
 
 
 @app.on_message(filters.regex("JOIN-CHANNEL-FOR-UPDATES"))
@@ -77,25 +83,30 @@ async def join(client, msg):
   channel_id = -1001967606455  # Example channel ID
   user_id = msg.from_user.id
   try:
-      await app.get_chat_member(channel_id, user_id)
-  # Delete the command message
-      abtbtn = InlineKeyboardMarkup([[
-      InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                           url="https://t.me/source_code_network")
-  ]])
-      await msg.reply_text(
-      text="This is a bot made with Pyrogram, developed by AKG",
-      reply_markup=abtbtn)
+    await app.get_chat_member(channel_id, user_id)
+    # Delete the command message
+    abtbtn = InlineKeyboardMarkup([[
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/source_code_network")
+    ]])
+    await msg.reply_text(
+        text="This is a bot made with Pyrogram, developed by AKG",
+        reply_markup=abtbtn)
   except Exception as e:
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
+
 
 # study
 @app.on_message(filters.regex("STUDY-MATERIAL"))
-async def send_random_channel_post(client, msg):
+async def study(client, msg):
   await app.delete_messages(chat_id=msg.chat.id, message_ids=msg.id)
   channel_id = -1001967606455  # Example channel ID
   user_id = msg.from_user.id
@@ -124,14 +135,19 @@ async def send_random_channel_post(client, msg):
   except Exception as e:
     await msg.reply(f"An error occurred: {e}")
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
+
 
 # dark
 @app.on_message(filters.regex("DARKWEB-VIDEOS"))
-async def send_random_channel_post(client, msg):
+async def dark(client, msg):
   await app.delete_messages(chat_id=msg.chat.id, message_ids=msg.id)
   channel_id = -1001967606455  # Example channel ID
   user_id = msg.from_user.id
@@ -160,10 +176,15 @@ async def send_random_channel_post(client, msg):
   except Exception as e:
     await msg.reply(f"An error occurred: {e}")
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
+
 
 # videos
 @app.on_message(filters.regex("VIDEOS"))
@@ -196,10 +217,56 @@ async def send_random_channel_post(client, msg):
   except Exception as e:
     await msg.reply(f"An error occurred: {e}")
     abtbtn = InlineKeyboardMarkup([[
-    InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                         url="https://t.me/+Y9O5ptuPEFs3NGE1")
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
     ]])
-    await msg.reply_text("Please join our channel or group first.",reply_markup=abtbtn)
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
+
+
+# indian
+@app.on_message(filters.regex("INDIAN-VIDEOS"))
+async def INDIAN(client, msg):
+  await app.delete_messages(chat_id=msg.chat.id, message_ids=msg.id)
+  channel_id = -1001967606455  # Example channel ID
+  user_id = msg.from_user.id
+  source = -1002090806475
+  file_name = "indian.txt"
+
+  try:
+    await app.get_chat_member(channel_id, user_id)
+    with open(file_name, "r") as file:
+      message_ids = [int(line.strip()) for line in file.readlines()]
+
+    if not message_ids:
+      await msg.reply("The posts.txt file is empty.")
+      return
+
+    # Pick a random message id
+    random_message_id = random.choice(message_ids)
+
+    # Forward the message to the user who sent the command
+    await client.copy_message(chat_id=msg.chat.id,
+                              from_chat_id=source,
+                              message_id=random_message_id,
+                              disable_notification=True)
+  except FileNotFoundError:
+    await msg.reply(f"File '{file_name}' not found.")
+  except Exception as e:
+    await msg.reply(f"An error occurred: {e}")
+    abtbtn = InlineKeyboardMarkup([[
+        InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
+        InlineKeyboardButton("RESTART  BOT",
+                             url="http://t.me/Pronexe_bot?start=start")
+    ]])
+    await msg.reply_text(
+        "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
+        reply_markup=abtbtn)
+
 
 if __name__ == "__main__":
   app.run()
