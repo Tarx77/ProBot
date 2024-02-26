@@ -6,7 +6,7 @@ import random
 
 api_id = 29268693
 api_hash = "1ad7c3f7c78b8ca2a1888b757764ae03"
-bot_token = "6472433409:AAH3IKMVV__PTJvG4CfNoNvUvvlEYcsmWFA"
+bot_token = "6957418222:AAFws7XUzaWyZN2iEHatd2qq9QyRJrr_OY4"
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
@@ -39,7 +39,7 @@ async def start(client, msg):
     await app.get_chat_member(channel_id, user_id)
     await msg.reply_text("Welcome to my bot",
                          reply_markup=ReplyKeyboardMarkup(
-                             [["STUDY-MATERIAL", "VIDEOS", "DARKWEB-VIDEOS"],
+                             [["STUDY-MATERIAL", "VIDEOS", "DARKWEB-VIDEOS"],["INDIAN-VIDEOS"],
                               ["JOIN-CHANNEL-FOR-UPDATES"], ["ABOUT"]],
                              resize_keyboard=True))
   except Exception as e:
