@@ -271,5 +271,32 @@ async def INDIAN(client, msg):
         reply_markup=abtbtn)
 
 
+
+@app.on_message(filters.command("broadcast") & filters.private)
+async def broadcast_message(client, msg):
+    # Get the message text or reply if provided
+    text = msg.text.split(maxsplit=1)[1] if len(msg.text.split()) > 1 else None
+    reply_to_message_id = msg.reply_to_message.message_id if msg.reply_to_message else None
+
+    # Get all private chat users
+    all_users = await client.get_users(is_bot=False)
+
+    # Forward message to each user
+    for user in all_users:
+        try:
+            await client.copy_message(
+                chat_id=user.id,
+                from_chat_id=msg.chat.id,
+                message_id=reply_to_message_id,
+                disable_notification=True
+            )
+            if text:
+                await client.send_message(chat_id=user.id, text=text)
+        except Exception as e:
+            print(f"Error sending message to user {user.id}: {e}")
+
+    await msg.reply("Broadcast sent to all users!")
+  
+
 if __name__ == "__main__":
   app.run()
