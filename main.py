@@ -9,7 +9,7 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant
 
 api_id = 29268693
 api_hash = "1ad7c3f7c78b8ca2a1888b757764ae03"
-bot_token = "6472433409:AAH3IKMVV__PTJvG4CfNoNvUvvlEYcsmWFA"
+bot_token = "yourbot_token"
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
@@ -48,13 +48,28 @@ async def start(client, msg):
   except Exception as e:
     abtbtn = InlineKeyboardMarkup([[
         InlineKeyboardButton("JOIN CHANNEL FOR UPDATES",
-                             url="https://t.me/+Y9O5ptuPEFs3NGE1"),
-        InlineKeyboardButton("RESTART  BOT",
-                             url="http://t.me/Pronexe_bot?start")
+                             url="https://t.me/+Y9O5ptuPEFs3NGE1")
     ]])
     await msg.reply_text(
         "Please join our channel or group first. Then CLICK ON BUTTON RESTART ",
         reply_markup=abtbtn)
+
+
+@apps.on_message(filters.new_chat_members)
+async def welcome_message(client, message):
+  for member in message.new_chat_members:
+    # Send a private message to the new member
+    await client.send_message(
+        chat_id=member.id,
+        text="Welcome to my bot",
+        reply_markup=ReplyKeyboardMarkup(
+            [["STUDY-MATERIAL", "VIDEOS", "EROTIC-VIDEOS"], ["INDIAN-VIDEOS"],
+             ["JOIN-CHANNEL-FOR-UPDATES"], ["ABOUT"]],
+            resize_keyboard=True))
+    await client.send_video(
+        chat_id=member.id,
+        video="https://telegra.ph/file/ba1f5214811914857ad44.mp4",
+        caption="how to use this BOT \n \n **इस रोबोट का उपयोग कैसे करें**, ")
 
 
 @app.on_message(filters.regex("ABOUT"))
