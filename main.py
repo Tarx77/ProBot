@@ -55,7 +55,7 @@ async def start(client, msg):
         reply_markup=abtbtn)
 
 
-@apps.on_message(filters.new_chat_members)
+@app.on_message(filters.new_chat_members)
 async def welcome_message(client, message):
   for member in message.new_chat_members:
     # Send a private message to the new member
